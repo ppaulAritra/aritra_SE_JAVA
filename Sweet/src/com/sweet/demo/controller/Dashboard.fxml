@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="437.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sweet.demo.controller.DashboardController">
+    <children>
+        <VBox prefHeight="437.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <AnchorPane prefHeight="100.0" prefWidth="549.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" AnchorPane.leftAnchor="10.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Text>
+                                <Button fx:id="btnSearchProduct" layoutX="441.0" layoutY="18.0" mnemonicParsing="false" onAction="#searchProduct" text="Product" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="18.0" />
+                                <Button fx:id="btnAdd" layoutX="507.0" layoutY="18.0" mnemonicParsing="false" onAction="#addProduct" text="Add" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="18.0" />
+                                <TextArea fx:id="Message" layoutY="52.0" prefHeight="68.0" prefWidth="549.0" promptText="Message" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="52.0" />
+                                <Button fx:id="btnLogout" layoutX="474.0" layoutY="18.0" mnemonicParsing="false" onAction="#logOut" text="Logout" AnchorPane.rightAnchor="5.0" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <VBox prefHeight="295.0" prefWidth="550.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <SplitPane dividerPositions="0.4835766423357664" layoutY="53.0" prefHeight="282.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0" VBox.vgrow="ALWAYS">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="328.0" prefWidth="262.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Top Profitable Product" AnchorPane.leftAnchor="5.0">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="btnProfit" layoutX="196.0" layoutY="4.0" mnemonicParsing="false" onAction="#searchMostProfit" text="Search" AnchorPane.rightAnchor="5.0" />
+                                    <TableView fx:id="tableProfit" layoutX="22.0" layoutY="66.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0">
+                                      <columns>
+                                        <TableColumn fx:id="colProductName" prefWidth="75.0" text="Product name" />
+                                        <TableColumn fx:id="colProfit" prefWidth="75.0" text="Profit" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="310.0">
+                                 <children>
+                                    <Label layoutX="23.0" layoutY="6.0" text="Product Sold" AnchorPane.leftAnchor="5.0">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="btnSold" layoutX="214.0" layoutY="4.0" mnemonicParsing="false" onAction="#searchSold" text="Search" AnchorPane.rightAnchor="5.0" />
+                                    <TableView fx:id="tableProductSold" layoutX="40.0" layoutY="66.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0">
+                                       <columns>
+                                          <TableColumn fx:id="colProduct" prefWidth="75.0" text="Product Name" />
+                                          <TableColumn fx:id="colCount" prefWidth="75.0" text="Item Sold" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </children></VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

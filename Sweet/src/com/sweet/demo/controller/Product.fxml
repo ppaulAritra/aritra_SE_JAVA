@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="437.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sweet.demo.controller.ProductController">
+    <children>
+        <VBox prefHeight="437.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <AnchorPane prefHeight="100.0" prefWidth="549.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Information" AnchorPane.leftAnchor="10.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Text>
+                                <Button fx:id="btnNew" layoutX="382.0" layoutY="18.0" mnemonicParsing="false" onAction="#newProduct" text="New" AnchorPane.rightAnchor="127.0" AnchorPane.topAnchor="18.0" />
+                                <Button fx:id="btnSave" layoutX="434.0" layoutY="18.0" mnemonicParsing="false" onAction="#saveAction" text="Save" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="18.0" />
+                                <TextArea fx:id="Message" layoutY="52.0" prefHeight="68.0" prefWidth="549.0" promptText="Message" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="52.0" />
+                                <Button fx:id="btnSearch" layoutX="483.0" layoutY="18.0" mnemonicParsing="false" onAction="#searchAction" text="Search" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="18.0" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <AnchorPane prefHeight="250.0" prefWidth="550.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <TextField fx:id="txtId" editable="false" layoutX="157.0" layoutY="14.0" prefHeight="25.0" prefWidth="169.0" promptText="Id" AnchorPane.leftAnchor="157.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="txtName" layoutX="160.0" layoutY="49.0" prefHeight="25.0" prefWidth="169.0" promptText="Name" AnchorPane.leftAnchor="157.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="49.0" />
+                                <TextField fx:id="txtBuyPrice" layoutX="157.0" layoutY="127.0" prefHeight="25.0" prefWidth="169.0" promptText="Price" AnchorPane.leftAnchor="157.0" AnchorPane.rightAnchor="214.0" />
+                                <Label layoutX="14.0" layoutY="18.0" text="Product Id" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="463.0" AnchorPane.topAnchor="14.0" />
+                                <Label layoutX="14.0" layoutY="57.0" prefHeight="17.0" prefWidth="95.0" text="Product Name" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="431.0" AnchorPane.topAnchor="53.0" />
+                                <Label layoutX="14.0" layoutY="87.0" prefHeight="17.0" prefWidth="75.0" text="Product Type" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="451.0" AnchorPane.topAnchor="87.0" />
+                                <Label layoutX="14.0" layoutY="127.0" prefHeight="17.0" prefWidth="75.0" text="Buy Price" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="451.0" AnchorPane.topAnchor="127.0" />
+                        <Label layoutX="14.0" layoutY="168.0" prefHeight="17.0" prefWidth="75.0" text="Details" />
+                        <TextField fx:id="txtDetails" layoutX="157.0" layoutY="164.0" prefHeight="25.0" prefWidth="169.0" promptText="Details" AnchorPane.leftAnchor="157.0" AnchorPane.rightAnchor="214.0" />
+                        <ComboBox fx:id="cmbType" layoutX="157.0" layoutY="83.0" prefHeight="33.0" prefWidth="169.0" promptText="Select" AnchorPane.leftAnchor="157.0" AnchorPane.rightAnchor="214.0" />
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
