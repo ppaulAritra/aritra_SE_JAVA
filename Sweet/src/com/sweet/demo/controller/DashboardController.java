@@ -3,7 +3,8 @@ package com.sweet.demo.controller;
 /**
  * Created by Aritra Paul on 7/28/2018.
  */
-import com.sweet.demo.dto.ProductDto;
+import com.sweet.demo.Dto.ProductDto;
+
 import com.sweet.demo.entity.Product;
 import com.sweet.demo.model.ModelProduct;
 import javafx.collections.FXCollections;
@@ -59,24 +60,24 @@ public class DashboardController implements Initializable{
     @FXML
     private Button btnSearchProduct;
     @FXML
-    private TableView tableProfit;
+    private TableView <Product>tableProfit;
     @FXML
-    private TableView tableProductSold;
+    private TableView <Product>tableProductSold;
 
     ModelProduct model = new ModelProduct();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        colProductName.setCellValueFactory(new PropertyValueFactory<>("0"));
-        colProfit.setCellValueFactory(new PropertyValueFactory<>("1"));
-        colProduct.setCellValueFactory(new PropertyValueFactory<>("0"));
-        colCount.setCellValueFactory(new PropertyValueFactory<>("1"));
+        colProductName.setCellValueFactory(new PropertyValueFactory<Product,String>("productName"));
+        colProfit.setCellValueFactory(new PropertyValueFactory<Product,Double>("avgProfit"));
+        colProduct.setCellValueFactory(new PropertyValueFactory<Product,String>("productName"));
+        colCount.setCellValueFactory(new PropertyValueFactory<Product,Integer>("totalsold"));
 
 
     }
 
-    private ObservableList getMostSold() {
-        ObservableList list = FXCollections.observableArrayList();
+    private ObservableList<Product> getMostSold() {
+        ObservableList<Product> list = FXCollections.observableArrayList();
         list = model.getSold();
 
         if (list.isEmpty()) {
@@ -86,10 +87,11 @@ public class DashboardController implements Initializable{
         {
             Message.clear();
         }
+
         return list;
     }
-    private ObservableList getProfitable() {
-        ObservableList list = FXCollections.observableArrayList();
+    private ObservableList <Product> getProfitable() {
+        ObservableList <Product> list = FXCollections.observableArrayList();
         list = model.getProfitable();
         if (list.isEmpty()) {
             Message.setText("No Product to show");
@@ -98,6 +100,7 @@ public class DashboardController implements Initializable{
         {
             Message.clear();
         }
+
         return list;
     }
 
