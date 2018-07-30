@@ -1,5 +1,6 @@
 package com.sweet.demo.model;
 
+import com.sweet.demo.Dto.ProductDto;
 import com.sweet.demo.Hibutil;
 import com.sweet.demo.dao.DaoProduct;
 import com.sweet.demo.entity.Product;
@@ -142,18 +143,25 @@ public class ModelProduct implements DaoProduct {
     }
 
     @Override
-    public ObservableList getProfitable() {
-        ObservableList list = FXCollections.observableArrayList();
+    public ObservableList <Product >getProfitable() {
+        ObservableList<Product> list = FXCollections.observableArrayList();
         Transaction tx=null;
 
         session = Hibutil.getSessionFactory().getCurrentSession();
         try {
             tx= session.beginTransaction();
-            List productList = session.createQuery("select productName,avg(profit) as avgProfit from Product group by productName\n" +
-                    " order by '2' desc").setFirstResult(0).setMaxResults(5).list();
+            List <Object[]>productList = session.createQuery("select productName,avg(profit) as avgProfit from Product group by productName "
+                    +"order by avg(profit) desc").setFirstResult(0).setMaxResults(5).list();
             tx.commit();
-            productList.stream().forEach(list::add);
-            System.out.println(list.get(1));
+            for(Object []row:productList)
+            {Product p= new Product();
+            p.setProductName(row[0].toString());
+            p.setAvgProfit(Double.valueOf(row[1].toString()));
+            list.add(p);
+
+            }
+
+
             return list;
         }catch(HibernateException e) {
             if(tx!=null)tx.rollback();
@@ -162,18 +170,24 @@ public class ModelProduct implements DaoProduct {
     }
 
     @Override
-    public ObservableList getSold() {
-        ObservableList list = FXCollections.observableArrayList();
+    public ObservableList <Product >getSold() {
+        ObservableList<Product >list = FXCollections.observableArrayList();
         Transaction tx=null;
-
+        ;
         session = Hibutil.getSessionFactory().getCurrentSession();
         try {
             tx= session.beginTransaction();
-            List productList = session.createQuery(" select productName, count(productName) as totalSold  from Product where sell='1' group by productName Order by totalSold desc").setCacheable(true).list();
-            tx.commit();
-            productList.stream().forEach(list::add);
 
-            System.out.println(list.get(0));
+           List <Object[] >productList = session.createQuery(" select productName, count(productName)  from Product where sell='1' group by productName Order by count(productName) desc").setCacheable(true).list();
+            tx.commit();
+            for(Object []row:productList)
+            {Product p= new Product();
+                p.setProductName(row[0].toString());
+                p.setTotalsold(Integer.valueOf(row[1].toString()));
+               list.add(p);
+
+            }
+
             return list;
         }catch(HibernateException e) {
             if(tx!=null)tx.rollback();
