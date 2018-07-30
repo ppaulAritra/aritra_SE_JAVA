@@ -1,6 +1,7 @@
 package com.sweet.demo.dao;
 
-import com.sweet.demo.dto.ProductDto;
+import com.sweet.demo.Dto.ProductDto;
+
 import com.sweet.demo.entity.Product;
 import javafx.collections.ObservableList;
 
@@ -17,6 +18,6 @@ public interface DaoProduct {
     public String deleteProduct(Product product);
     public String insertProfit(Product product);
 
-    public ObservableList getProfitable();
-    public ObservableList getSold();
+    public ObservableList <Product >getProfitable();
+    public ObservableList<Product >getSold();
 }
